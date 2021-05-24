@@ -1,9 +1,18 @@
 spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: naruto
+    password: naruto
   jpa:
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
   h2:
     console:
       enabled: true
@@ -11,3 +20,6 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+  sql:
+    init:
+      platform: h2
