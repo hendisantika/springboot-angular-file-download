@@ -32,6 +32,11 @@ public class EmployeeRestController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping
+    public List<EmployeeVo> getEmployeeList() {
+        return employeeService.getEmployeeList();
+    }
+
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadFile() throws Exception {
         List<EmployeeVo> employees = employeeService.getEmployeeList();
